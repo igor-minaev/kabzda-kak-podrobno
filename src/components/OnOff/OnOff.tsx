@@ -1,12 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 type OnOffPropsType = {
-    on: boolean
+    /*on: boolean*/
 }
 
 
-
 export const OnOff = (props: OnOffPropsType) => {
+    console.log('OnOff rendering')
+
+    const [on, setOn] = useState(false)
+
+    console.log(on)
+
     const OnStyle = {
         width: "20px",
         height: "20px",
@@ -14,7 +19,7 @@ export const OnOff = (props: OnOffPropsType) => {
         padding: '3px',
         display: 'inline-block',
         marginRight: '10px',
-        backgroundColor: props.on ? 'green' : 'white'
+        backgroundColor: on ? 'green' : 'white'
     }
 
     const OffStyle = {
@@ -24,7 +29,7 @@ export const OnOff = (props: OnOffPropsType) => {
         padding: '3px',
         display: 'inline-block',
         marginRight: '10px',
-        backgroundColor: props.on ? 'white' : 'red'
+        backgroundColor: on ? 'white' : 'red'
     }
     const SwitchStyle = {
         width: "10px",
@@ -34,12 +39,12 @@ export const OnOff = (props: OnOffPropsType) => {
         padding: '3px',
         display: 'inline-block',
         marginRight: '10px',
-        backgroundColor: props.on ? 'green' : 'red'
+        backgroundColor: on ? 'green' : 'red'
     }
     return (
-        <div style={{marginBottom:'10px'}}>
-            <div style={OnStyle}>On</div>
-            <div style={OffStyle}>Off</div>
+        <div style={{marginBottom: '10px'}}>
+            <div style={OnStyle} onClick={()=>{setOn(true)}}>On</div>
+            <div style={OffStyle} onClick={()=>{setOn(false)}}>Off</div>
             <div style={SwitchStyle}></div>
         </div>
     );
