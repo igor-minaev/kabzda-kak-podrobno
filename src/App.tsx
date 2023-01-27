@@ -20,7 +20,7 @@ function App() {
     console.log('App rendering')
     const [ratingValue, setRatingValue] = useState<0 | 1 | 2 | 3 | 4 | 5>(0)
     const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
-    const [on, setOn] = useState<boolean>(true)
+    const [switchOn, setSwitchOn] = useState<boolean>(true)
     return (
         <div className={'App'}>
             {/*<PageTitle title={'This is APP component'}/>
@@ -33,9 +33,9 @@ function App() {
             <UncontrolledRating/>*/}
             <Rating value={ratingValue} onClick={setRatingValue}/>
             <UncontrolledRating/>
-            <Accordion titleValue={'Menu'} collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>
-            <UncontrolledOnOff/>
-            <OnOff on={on} onClick={setOn}/>
+            <Accordion titleValue={'Menu'} collapsed={accordionCollapsed} onChange={()=>setAccordionCollapsed(!accordionCollapsed)}/>
+            <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
+            {/*<OnOff on={switchOn} onChange={setSwitchOn}/>*/}
         </div>
     );
 }
