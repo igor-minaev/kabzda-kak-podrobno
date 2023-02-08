@@ -5,7 +5,7 @@ import UncontrolledAccordion from "./UncontrolledAccordion";
 
 
 export default {
-    title: 'UncontrolledAccordion',
+    title: 'Components/UncontrolledAccordion',
     component: UncontrolledAccordion
 }
 

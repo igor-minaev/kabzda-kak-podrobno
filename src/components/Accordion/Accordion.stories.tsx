@@ -1,19 +1,43 @@
 import React, {useState} from 'react';
 import {action} from "@storybook/addon-actions";
 import Accordion from "./Accordion";
+import {ComponentMeta, ComponentStory} from "@storybook/react";
 
 
 export default {
-    title: 'Accordion',
+    title: 'Components/Accordion',
     component: Accordion
-}
+} as ComponentMeta<typeof Accordion>;
 
 const callback = action('accordion mode change event fired')
+
+const Template: ComponentStory<typeof Accordion> = (args) => <Accordion {...args} />;
+
+export const MenuCollapsedMode2 = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+MenuCollapsedMode2.args = {
+    titleValue: 'Menu',
+    collapsed: true,
+    onChange: callback
+};
+
+export const UsersUncollapsedMode2 = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+UsersUncollapsedMode2.args = {
+    titleValue: 'Users',
+    collapsed: false,
+    onChange: callback
+};
+
 
 export const MenuCollapsedMode = () => <Accordion titleValue={'Menu'} onChange={callback} collapsed={true}/>
 export const UsersUncollapsedMode = () => <Accordion titleValue={'Users'} onChange={callback} collapsed={false}/>
 
-export const ModeChanging = () => {
+export const ModeChanging: ComponentStory<typeof Accordion> = (args) => {
     const [value, setValue] = useState<boolean>(true)
-    return <Accordion titleValue={'Users'} onChange={()=>setValue(!value)} collapsed={value}/>
+    return <Accordion {...args} collapsed={value} onChange={() => setValue(!value)}/>
+}
+
+ModeChanging.args = {
+    titleValue: 'Users',
 }
