@@ -1,15 +1,30 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {action} from "@storybook/addon-actions";
 import {UncontrolledOnOff} from "./UncontrolledOnOff";
+import {ComponentMeta, ComponentStory} from "@storybook/react";
+
 
 
 export default {
     title: 'Components/UncontrolledOnOff',
     component: UncontrolledOnOff
-}
+} as ComponentMeta<typeof UncontrolledOnOff>;
 
 const callback = action('on or off clicked')
 
-export const OnMode = () => <UncontrolledOnOff defaultOn={true} onChange={callback}/>
-export const OffMode = () => <UncontrolledOnOff defaultOn={false} onChange={callback}/>
-export const DefaultInputValue = () => <input defaultValue={'yo'} />
+const Template: ComponentStory<typeof UncontrolledOnOff> = (args) => <UncontrolledOnOff {...args} />;
+
+export const OnMode = Template.bind({})
+OnMode.args = {
+    defaultOn: true,
+    onChange: callback
+}
+
+export const OffMode = Template.bind({})
+OffMode.args = {
+    defaultOn: false,
+    onChange: callback
+}
+
+
+
