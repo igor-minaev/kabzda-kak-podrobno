@@ -1,5 +1,10 @@
 import React from "react";
 
+type ItemType = {
+    title: string
+    value: any
+}
+
 type AccordionPropsType = {
     /**
      * Title for your accordion component
@@ -11,6 +16,11 @@ type AccordionPropsType = {
      * Optional color of header text
      */
     color?: string
+    /**
+     * Array of items
+     */
+    items: ItemType[]
+    onClick: (value: any) => void
 }
 
 function Accordion(props: AccordionPropsType) {
@@ -19,7 +29,7 @@ function Accordion(props: AccordionPropsType) {
         <div>
             <AccordionTitle color={props.color} title={props.titleValue}
                             onChange={props.onChange}/>
-            {!props.collapsed && <AccordionBody/>}
+            {!props.collapsed && <AccordionBody onClick={props.onClick} items={props.items}/>}
         </div>
     )
 }
@@ -33,15 +43,19 @@ type AccordionTitlePropsType = {
 
 function AccordionTitle(props: AccordionTitlePropsType) {
     console.log('AccordionTitle rendering')
-    return <h3 style={{color: props.color ? props.color : 'black'}} onClick={(e) => props.onChange()}>-- {props.title} --</h3>
+    return <h3 style={{color: props.color ? props.color : 'black'}}
+               onClick={(e) => props.onChange()}>-- {props.title} --</h3>
 }
 
-function AccordionBody() {
+type AccordionBodyPropsType = {
+    items: ItemType[]
+    onClick: (value: any) => void
+}
+
+function AccordionBody(props: AccordionBodyPropsType) {
     console.log('AccordionBody rendering')
     return <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
+        {props.items.map((i, index) => <li key={index} onClick={() => props.onClick(i.value)}>{i.title}</li>)}
     </ul>
 }
 
