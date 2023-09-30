@@ -18,8 +18,8 @@ function App() {
             <PageTitle title="My friends"/>
             Article 1
             <Rating value={4}/>
-            <Accordion titleValue = "Menu"/>
-            <Accordion titleValue = "Users"/>
+            <Accordion titleValue="Menu" collapsed={true}/>
+            <Accordion titleValue="Users" collapsed={false}/>
             Article 2
             <Rating value={0}/>
             <Rating value={1}/>
@@ -27,12 +27,15 @@ function App() {
             <Rating value={3}/>
             <Rating value={4}/>
             <Rating value={5}/>
-            <Rating value={6}/>
         </div>
     );
 }
 
-function PageTitle(props:any) {
+type PageTitlePropsType = {
+    title: string
+}
+
+function PageTitle(props: PageTitlePropsType) {
     console.log('PageTitle rendering')
     return <div>{props.title}</div>
 }
