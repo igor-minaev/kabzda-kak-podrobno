@@ -3,6 +3,7 @@ import './App.css';
 import Accordion from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
+import {OnOff2} from "./components/OnOff2/OnOff2";
 
 function hello() {
     debugger
@@ -30,6 +31,8 @@ function App() {
             <Rating value={5}/>
             <OnOff on={true}/>
             <OnOff on={false}/>
+            <OnOff2/>
+            <OnOff2/>
         </div>
     );
 }
