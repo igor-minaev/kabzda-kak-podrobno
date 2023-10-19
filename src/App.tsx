@@ -3,7 +3,7 @@ import './App.css';
 import Accordion from "./components/Accordion/Accordion";
 import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
-import {OnOff2} from "./components/OnOff2/OnOff2";
+import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
 import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 
@@ -17,7 +17,8 @@ function hello() {
 function App() {
     console.log('App rendering')
     const [ratingValue, setRatingValue] = useState<RatingValueType>(4)
-    const [accordionCollapsed, setAccordionCollapsed] = useState(false)
+    const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
+    const [on, setOn] = useState<boolean>(true)
     return (
         <div className="App">
             <PageTitle title="This is APP component"/>
@@ -25,10 +26,9 @@ function App() {
             Article 1
             <Accordion titleValue="Menu" collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>
             Article 2
-            <OnOff on={true}/>
-            <OnOff on={false}/>
-            <OnOff2/>
-            <OnOff2/>
+            <OnOff on={on} setOn={setOn}/>
+            <UncontrolledOnOff/>
+            <UncontrolledOnOff/>
             <UncontrolledAccordion titleValue="Menu"/>
             <UncontrolledAccordion titleValue="Users"/>
             <UncontrolledRating/>

@@ -2,6 +2,7 @@ import React from 'react';
 
 type OnOffPropsType = {
     on: boolean
+    setOn: (on: boolean) => void
 }
 
 export const OnOff = (props: OnOffPropsType) => {
@@ -38,8 +39,8 @@ export const OnOff = (props: OnOffPropsType) => {
     }
     return (
         <div style={onOffStyle}>
-            <div style={onStyle}>On</div>
-            <div style={offStyle}>Off</div>
+            <div onClick={()=>props.setOn(true)} style={onStyle}>On</div>
+            <div onClick={()=>props.setOn(false)} style={offStyle}>Off</div>
             <div style={switchStyle}></div>
         </div>
     );

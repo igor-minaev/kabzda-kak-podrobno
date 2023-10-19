@@ -3,9 +3,9 @@ import React, {useState} from 'react';
 type OnOffPropsType = {
 }
 
-export const OnOff2 = (props: OnOffPropsType) => {
+export const UncontrolledOnOff = (props: OnOffPropsType) => {
     const [on, setOn] = useState(false)
-    console.log("OnOff2 rendering")
+    console.log("UncontrolledOnOff rendering")
     const onOffStyle = {
         margin: "10px"
     }
