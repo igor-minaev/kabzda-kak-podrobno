@@ -17,13 +17,13 @@ function hello() {
 function App() {
     console.log('App rendering')
     const [ratingValue, setRatingValue] = useState<RatingValueType>(4)
+    const [accordionCollapsed, setAccordionCollapsed] = useState(false)
     return (
         <div className="App">
             <PageTitle title="This is APP component"/>
             <PageTitle title="My friends"/>
             Article 1
-            <Accordion titleValue="Menu" collapsed={true}/>
-            <Accordion titleValue="Users" collapsed={false}/>
+            <Accordion titleValue="Menu" collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>
             Article 2
             <OnOff on={true}/>
             <OnOff on={false}/>
