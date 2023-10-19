@@ -24,7 +24,8 @@ function App() {
             <PageTitle title="This is APP component"/>
             <PageTitle title="My friends"/>
             Article 1
-            <Accordion titleValue="Menu" collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>
+            <Accordion titleValue="Menu" collapsed={accordionCollapsed}
+                       onChange={() => setAccordionCollapsed(!accordionCollapsed)}/>
             Article 2
             <OnOff on={on} setOn={setOn}/>
             <UncontrolledOnOff/>
