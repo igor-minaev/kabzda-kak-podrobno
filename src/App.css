@@ -2,3 +2,45 @@
     width: 1200px;
     margin: 20px auto;
 }
+
+
+.rate {
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+}
+
+/*.rate:hover .star {*/
+/*    color: #e0ff02;*/
+/*}*/
+/*.rate .star:hover ~ .star {*/
+/*    color: #fff;*/
+/*}*/
+
+
+.rate .star {
+    margin: 0;
+    padding: .2em;
+    display: inline-block;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+    text-shadow: 0 1px #e0ff02,
+    0 -1px #e0ff02,
+    1px 0 #e0ff02,
+    -1px 0 #e0ff02;
+}
+
+.rate .star:before {
+    content: '\2605';
+}
+
+.rate .active {
+    color: #e0ff02;
+}
+
+
+
+
+
+

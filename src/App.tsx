@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Accordion from "./components/Accordion/Accordion";
-import {Rating} from "./components/Rating/Rating";
+import {Rating, RatingValueType} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
 import {OnOff2} from "./components/OnOff2/OnOff2";
 import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
@@ -16,28 +16,23 @@ function hello() {
 
 function App() {
     console.log('App rendering')
+    const [ratingValue, setRatingValue] = useState<RatingValueType>(4)
     return (
         <div className="App">
             <PageTitle title="This is APP component"/>
             <PageTitle title="My friends"/>
             Article 1
-            <Rating value={4}/>
             <Accordion titleValue="Menu" collapsed={true}/>
             <Accordion titleValue="Users" collapsed={false}/>
             Article 2
-            <Rating value={0}/>
-            <Rating value={1}/>
-            <Rating value={2}/>
-            <Rating value={3}/>
-            <Rating value={4}/>
-            <Rating value={5}/>
             <OnOff on={true}/>
             <OnOff on={false}/>
             <OnOff2/>
             <OnOff2/>
-            <UncontrolledAccordion titleValue="Menu" />
-            <UncontrolledAccordion titleValue="Users" />
-            <UncontrolledRating />
+            <UncontrolledAccordion titleValue="Menu"/>
+            <UncontrolledAccordion titleValue="Users"/>
+            <UncontrolledRating/>
+            <Rating value={ratingValue} onClick={setRatingValue}/>
         </div>
     );
 }
