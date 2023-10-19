@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 
 type OnOffPropsType = {
+    onChange: (on: boolean) => void
 }
 
 export const UncontrolledOnOff = (props: OnOffPropsType) => {
@@ -37,10 +38,19 @@ export const UncontrolledOnOff = (props: OnOffPropsType) => {
         borderRadius: "50%",
         backgroundColor: on ? '#07e747' : '#ee2034'
     }
+
+    const onClicked = () => {
+        setOn(true)
+        props.onChange(true)
+    }
+    const offClicked = () => {
+        setOn(false)
+        props.onChange(false)
+    }
     return (
         <div style={onOffStyle}>
-            <div style={onStyle} onClick={() => setOn(true)}>On</div>
-            <div style={offStyle} onClick={() => setOn(false)}>Off</div>
+            <div style={onStyle} onClick={onClicked}>On</div>
+            <div style={offStyle} onClick={offClicked}>Off</div>
             <div style={switchStyle}></div>
         </div>
     );

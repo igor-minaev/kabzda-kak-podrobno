@@ -19,6 +19,7 @@ function App() {
     const [ratingValue, setRatingValue] = useState<RatingValueType>(4)
     const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
     const [switchOn, setSwitchOn] = useState<boolean>(true)
+    console.log(switchOn)
     return (
         <div className="App">
             <PageTitle title="This is APP component"/>
@@ -28,8 +29,7 @@ function App() {
                        onChange={() => setAccordionCollapsed(!accordionCollapsed)}/>
             Article 2
             <OnOff on={switchOn} onChange={setSwitchOn}/>
-            <UncontrolledOnOff/>
-            <UncontrolledOnOff/>
+            {/*<UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}*/}
             <UncontrolledAccordion titleValue="Menu"/>
             <UncontrolledAccordion titleValue="Users"/>
             <UncontrolledRating/>
