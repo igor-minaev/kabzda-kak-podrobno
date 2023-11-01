@@ -1,16 +1,14 @@
 import {action} from '@storybook/addon-actions';
 
 import UncontrolledAccordion from './UncontrolledAccordion';
-import {useState} from "react";
 
 export default {
     component: 'UncontrolledAccordion'
 }
 
-const onChangeHandler = action('onChange')
 
 
-export const AccordionWithState = () => {
+export const UncontrolledAccordionChanging = () => {
     return <UncontrolledAccordion titleValue='Menu'/>
 }
 

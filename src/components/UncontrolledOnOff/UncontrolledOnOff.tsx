@@ -2,10 +2,11 @@ import React, {useState} from 'react';
 
 type OnOffPropsType = {
     onChange: (on: boolean) => void
+    defaultOn?: boolean
 }
 
 export const UncontrolledOnOff = (props: OnOffPropsType) => {
-    const [on, setOn] = useState(false)
+    const [on, setOn] = useState(props.defaultOn ? props.defaultOn : false)
     console.log("UncontrolledOnOff rendering")
     const onOffStyle = {
         margin: "10px"
