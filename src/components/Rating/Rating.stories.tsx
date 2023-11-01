@@ -1,26 +1,60 @@
 // import type {Meta, StoryObj} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
 
-import Accordion from './Accordion';
+import {Rating, RatingValueType} from './Rating';
 import {useState} from "react";
 
-// const meta: Meta<typeof Accordion> = {
-//     component: Accordion,
+// const meta: Meta<typeof Rating> = {
+//     component: Rating,
 // };
 // export default meta;
-// type Story = StoryObj<typeof Accordion>;
+// type Story = StoryObj<typeof Rating>;
 //
 // /*
 //  *👇 Render functions are a framework specific feature to allow you control on how the component renders.
 //  * See https://storybook.js.org/docs/react/api/csf
 //  * to learn how to use render functions.
 //  */
-// export const FirstStory: Story = {
+
+const onClickHandler = action('onClick')
+// export const EmptyRatingNew: Story = {
 //     args: {
-//         titleValue: 'Menu',
-//         collapsed: false,
-//         onChange: () => {
-//         }
+//        value: 0,
+//         onClick:()=>{}
+//     }
+// };
+// export const Rating1New: Story = {
+//     args: {
+//         value: 1,
+//         onClick:()=>{}
+//     }
+// };
+//
+// export const Rating2New: Story = {
+//     args: {
+//         value: 2,
+//         onClick:()=>{}
+//     }
+// };
+//
+// export const Rating3New: Story = {
+//     args: {
+//         value: 3,
+//         onClick:()=>{}
+//     }
+// };
+//
+// export const Rating4New: Story = {
+//     args: {
+//         value: 4,
+//         onClick:()=>{}
+//     }
+// };
+//
+// export const Rating5New: Story = {
+//     args: {
+//         value: 5,
+//         onClick:()=>{}
 //     }
 // };
 // export const SecondStory: Story = {
@@ -32,23 +66,20 @@ import {useState} from "react";
 //     }
 // };
 export default {
-    component: 'Accordion'
+    component: 'Rating'
 }
 
-const onChangeHandler = action('onChange')
 
-export const CollapsedAccordion = () => {
-    return <Accordion titleValue='Collapsed Accordion' collapsed={true} onChange={onChangeHandler}/>
+export const EmptyRating = () => <Rating value={0} onClick={onClickHandler}/>
+export const Rating1 = () => <Rating value={1} onClick={onClickHandler}/>
+export const Rating2 = () => <Rating value={2} onClick={onClickHandler}/>
+export const Rating3 = () => <Rating value={3} onClick={onClickHandler}/>
+export const Rating4 = () => <Rating value={4} onClick={onClickHandler}/>
+export const Rating5 = () => <Rating value={5} onClick={onClickHandler}/>
+export const ChangeRating = () => {
+    const [value,setValue]=useState<RatingValueType>(0)
+    return <Rating value={value} onClick={setValue}/>
 }
 
-export const OpenedAccordion = () => {
-    return <Accordion titleValue='Opened Accordion' collapsed={false} onChange={() => {
-    }}/>
-}
 
-export const AccordionWithState = () => {
-    const [collapsed, setCollapsed] = useState(false)
-    return <Accordion titleValue='Accordion with state' collapsed={collapsed}
-                      onChange={() => setCollapsed((!collapsed))}/>
-}
 
