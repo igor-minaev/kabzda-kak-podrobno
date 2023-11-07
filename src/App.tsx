@@ -32,7 +32,6 @@ function App() {
             {/*<UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}*/}
             <UncontrolledAccordion titleValue="Menu"/>
             <UncontrolledAccordion titleValue="Users"/>
-            <UncontrolledRating/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
         </div>
     );
