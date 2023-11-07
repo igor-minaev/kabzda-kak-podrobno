@@ -38,17 +38,16 @@ export default {
 const onChangeHandler = action('onChange')
 
 export const CollapsedAccordion = () => {
-    return <Accordion titleValue='Collapsed Accordion' collapsed={true} onChange={onChangeHandler}/>
+    return <Accordion titleValue='Collapsed Accordion' collapsed={true} onChange={onChangeHandler} items={[]}/>
 }
 
 export const OpenedAccordion = () => {
     return <Accordion titleValue='Opened Accordion' collapsed={false} onChange={() => {
-    }}/>
+    }} items={['Dimych', 'Valera', 'Artem', 'Victor']}/>
 }
 
 export const AccordionWithState = () => {
     const [collapsed, setCollapsed] = useState(false)
-    return <Accordion titleValue='Accordion with state' collapsed={collapsed}
-                      onChange={() => setCollapsed((!collapsed))}/>
+    return <Accordion titleValue='Accordion with state' collapsed={collapsed} onChange={() => setCollapsed((!collapsed))}  items={['Dimych', 'Valera', 'Artem', 'Victor']}/>
 }
 

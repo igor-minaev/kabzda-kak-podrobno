@@ -26,7 +26,7 @@ function App() {
             <PageTitle title="My friends"/>
             Article 1
             <Accordion titleValue="Menu" collapsed={accordionCollapsed}
-                       onChange={() => setAccordionCollapsed(!accordionCollapsed)}/>
+                       onChange={() => setAccordionCollapsed(!accordionCollapsed)} items={[]}/>
             Article 2
             <OnOff on={switchOn} onChange={setSwitchOn}/>
             {/*<UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}*/}
