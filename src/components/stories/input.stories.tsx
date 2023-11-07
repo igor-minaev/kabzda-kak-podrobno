@@ -10,7 +10,7 @@ export const UncontrolledInput = () => <input/>
 
 export const TrackValueOfUncontrolledInput = () => {
     const [value, setValue] = useState('')
-    const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => setValue(e.currentTarget.value)
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => setValue(e.currentTarget.value)
     return <><input onChange={onChangeHandler}/> - {value}</>
 }
 
@@ -23,5 +23,12 @@ export const GetValueOfUncontrolledInputByButtonPress = () => {
         </button>
         - actual value: {value}</>
 }
+
+export const ControlledInput = () => {
+    const [parentValue, setParentValue] = useState('')
+    return <input value={parentValue} onChange={action('want to change')}/>
+}
+export const ControlledChecbox = {}
+export const ControlledSelect = {}
 
 export const ControlledInputWithFixedValue = () => <input value='it-incubator.by'/>
